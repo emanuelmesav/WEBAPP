@@ -30,6 +30,12 @@ class Estudiantes(db.Model):
         self.nombre=nombre
         self.codigo=codigo
 
+@app.route('/')
+
+def bienvenida():
+
+    return render_template("bienvenida.html", Estudiantes.query.all())
 with app.app_context():
 
     db.create_all()
+    app.run(debug=True)
